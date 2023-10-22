@@ -37,6 +37,15 @@ export default function AdminFullArticle({data, seccion}: Props){
         })
     }
 
+    const handleTags = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const tagsArray = e.target.value.split(',').map(tag => tag);
+        
+        setArticle(prevArticle => ({
+            ...prevArticle,
+            tags: tagsArray
+        }));
+    }
+
     const handelSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const submit = await updateArticle(article)
@@ -44,6 +53,27 @@ export default function AdminFullArticle({data, seccion}: Props){
             router.push('/admin')
         }
     }
+
+    const makeTextStrong = () => {
+        const textarea = document.querySelector("textarea[name='content']") as HTMLTextAreaElement
+        if (!textarea) return;
+
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const selectedText = textarea.value.slice(start, end);
+
+        if (selectedText) {
+            const newValue = 
+                textarea.value.slice(0, start) +
+                `<strong>${selectedText}</strong>` +
+                textarea.value.slice(end);
+
+            setArticle({
+                ...article,
+                content: newValue
+            });
+        }
+    };
 
     return(
         <section>
@@ -60,10 +90,14 @@ export default function AdminFullArticle({data, seccion}: Props){
                         <h4>Bajada:</h4>
                         <textarea name='summary'  value={article.summary} cols={30} rows={2} onChange={handleChange} className="text-lg lg:text-sm text-center max-sm:text-sm border-2 border-black p-2"/>
                         <p className="text-[#5a5a5a] lg:text-xs max-sm:text-xs">{data.date}</p>
-                        <Image src={data.img} alt="asd" width={800} height={400} className="max-sm:w-full py-2 mx-auto"/>
+                        <Image src={data.img} alt="asd" width={800} height={400} unoptimized className="max-sm:w-full py-2 mx-auto"/>
                         {/* { contentComplete && <p className="w-full mx-auto text-left" dangerouslySetInnerHTML={{ __html: contentComplete }}></p>} */}
                         <h4>Nota Completa:</h4>
+                        <p onClick={makeTextStrong} className="bg-blue-500 text-white mt-2 px-4 py-2 rounded-lg w-1/12 cursor-pointer">Negritas</p>
                         <textarea name='content'  value={article.content} cols={30} rows={15} onChange={handleChange} className="border-2 border-black p-2"/>
+                        {/* TAGS */}
+                        <h4>Tags:</h4>
+                        <textarea name="tags" value={article.tags} cols={30} rows={2} onChange={handleTags} className="border-2 border-black p-2"/>
                         <br />
                         <button className="bg-black text-white w-1/6 mx-auto py-2 rounded-lg">Modificar</button>
                     </form>

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { CreateNew } from 'src/types';
 
@@ -14,6 +14,11 @@ export class ArticleController {
     @Get(':page')
     getArticle(@Param('page') page:string){
         return this.articleService.findArticle(page)
+    }
+
+    @Get()
+    getAll(){
+        return this.articleService.findAll()
     }
 
     @Get('/article/:title')
@@ -34,6 +39,11 @@ export class ArticleController {
     @Get('/search')
     getSearchArticle(@Query('keyword') keyword: string){
         return this.articleService.findByKeyWork(keyword)
+    }
+
+    @Patch('/:id')
+    updateArticle(@Param('id') id: number, @Body() body){
+        return this.articleService.updateArticle(body)
     }
 
 }

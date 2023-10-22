@@ -4,7 +4,7 @@ import { getArticles } from "./service/home.service";
 
 export default async function App() {
   const dataArticles = await getArticles()
-  
+
   return (
     <>
     <Navbar/>

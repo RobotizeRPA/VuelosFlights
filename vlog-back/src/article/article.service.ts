@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateNew, ArticleSectionModel } from 'src/types';
+import { CreateNew, ArticleSectionModel, ArticleUpdateModel } from 'src/types';
 import { Article } from './article.schema';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class ArticleService {
     }
 
     async findArticle(page: string){
-        const limit = 27
+        const limit = 50
         const skip = (parseInt(page) - 1) * limit
 
         const allArticle = await this.articleModel.find().sort({createdAt: -1}).skip(skip).limit(limit).exec()
@@ -40,6 +40,10 @@ export class ArticleService {
             return article
         }
         return {title:'article not found'}
+    }
+
+    async findAll(){
+        return this.articleModel.find()
     }
 
     async findArticleBySeccion(data: ArticleSectionModel) {
@@ -71,5 +75,24 @@ export class ArticleService {
             return Article
         }
         return [{title: 'No hay data'}]
+    }
+
+    async updateArticle(data: ArticleUpdateModel){
+        const article = await this.articleModel.updateOne({
+            _id: data._id
+        }, {
+            $set: {
+                title: data.title,
+                summary: data.summary,
+                content: data.content,
+                img: data.img,
+                date: data.date,
+                section: data.section,
+                tags: data.tags
+            }
+        })
+
+        return 'updated'
+
     }
 }

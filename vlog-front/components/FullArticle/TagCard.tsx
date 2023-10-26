@@ -7,7 +7,7 @@ interface Props {
 export default function TagCard({tag}: Props){
     const tagUrl = tag.replace(' ', '-')
     return(
-        <Link href={`/tags/${tagUrl}`} className="border-2 border-[#441eae] p-2 cursor-pointer">
+        <Link href={`/tags/${tagUrl}`} className="border-2 border-black p-2 cursor-pointer">
             <span>{tag}</span>
         </Link>)
 }   

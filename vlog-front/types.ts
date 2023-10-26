@@ -16,3 +16,17 @@ export interface ArticleCompleteType {
     tags: string[]
     content: string
 }
+
+export interface MainArticleType {
+    _id: string
+    title: string
+    img: string
+    section: string
+    date: string
+    summary: string
+}
+
+export interface vMoreArticles {
+    section: string
+    page: string
+}

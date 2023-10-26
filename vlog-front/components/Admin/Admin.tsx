@@ -9,7 +9,7 @@ interface Props {
 
 export default function Admin({data}: Props){
     const [search, setSearch] = useState('')
-    const [section, setSection] = useState('Aerolineas')
+    const [section, setSection] = useState('aerolineas')
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value)
@@ -23,7 +23,7 @@ export default function Admin({data}: Props){
             <section>
                 <div className="flex justify-between items-center gap-2 w-3/4 mx-auto p-4 border-b-2 border-b-black">
                     <div className="flex justify-center items-center gap-4">
-                        <button onClick={() => setSection('Aerolineas')} className={section == 'Aerolineas' ? 'bg-black text-white py-2 px-4 rounded-lg' : 'text-black'}>Aerolineas</button>
+                        <button onClick={() => setSection('aerolineas')} className={section == 'Aerolineas' ? 'bg-black text-white py-2 px-4 rounded-lg' : 'text-black'}>Aerolineas</button>
                         <button onClick={() => setSection('internacional')} className={section == 'internacional' ? 'bg-black text-white py-2 px-4 rounded-lg' : 'text-black'}>Internacional</button>
                     </div>
                     <div>

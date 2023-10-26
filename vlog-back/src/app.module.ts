@@ -4,13 +4,14 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ArticleModule } from './article/article.module';
 import { SearchModule } from './search/search.module';
+import { config } from 'dotenv';
 
+config()
 
 @Module({
   imports: [MongooseModule.forRootAsync({
     useFactory: () => ({
-      // uri: process.env.MONGODB
-      uri: 'mongodb+srv://rparobotize:uyVHJGIAMoypNagN@vlogflighst.xflctxh.mongodb.net/'
+      uri: process.env.MONGODB
     })
   }),ArticleModule, SearchModule],
   controllers: [AppController],

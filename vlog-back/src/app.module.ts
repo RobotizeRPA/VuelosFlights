@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ArticleModule } from './article/article.module';
+import { SearchModule } from './search/search.module';
 
 
 @Module({
@@ -11,7 +12,7 @@ import { ArticleModule } from './article/article.module';
       // uri: process.env.MONGODB
       uri: 'mongodb+srv://rparobotize:uyVHJGIAMoypNagN@vlogflighst.xflctxh.mongodb.net/'
     })
-  }),ArticleModule],
+  }),ArticleModule, SearchModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -10,7 +10,6 @@ type Props = {
   }
 
 export async function generateMetadata({ params, }: Props): Promise<Metadata> {
-      // read route params
       const dataTitle = await getArticle(params.id)
   
       return {

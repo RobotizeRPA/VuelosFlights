@@ -5,15 +5,16 @@ import ArticleMain from "../ArticleCard/ArticleMain"
 import {useState} from 'react'
 import { getMoreArticles } from "./service/home.service"
 import Footer from "../Footer/Footer"
+import ArticleMainDos from "../ArticleCard/ArticleMainDos"
 interface Props{
     dataArticles: ArticlesCardType[]
-    mainArticle: MainArticleType
+    mainArticle: MainArticleType[]
 }
 
 
 export default function Home({dataArticles, mainArticle}: Props){
 
-    dataArticles = dataArticles.slice(0,dataArticles.length - 1)
+    dataArticles = dataArticles.slice(4,dataArticles.length - 1)
     // Para agregar mas notas
     const [moreArticles, setMoreNews] = useState<ArticlesCardType[]>(dataArticles)
     const [limit,setLimit] = useState<boolean>(false)
@@ -35,11 +36,10 @@ export default function Home({dataArticles, mainArticle}: Props){
 
     return(
             <>
-            <div className='h-[50vh] bg-no-repeat bg-cover bg-center mb-10' style={{ backgroundImage: `url(${mainArticle.img})` }}>
-            <ArticleMain key={mainArticle._id} title={mainArticle.title} section={mainArticle.section} _id={mainArticle._id} summary={mainArticle.summary} date={mainArticle.date}/>
-            </div>
+            <h4 className="w-3/4 mx-auto px-2 font-bold text-2xl border-b-2 border-b-black max-sm:col-span-2 max-sm:w-full">Noticias mas destacadas</h4>
+            <ArticleMainDos mainArticles={mainArticle}/>
             <section className="w-3/4 mx-auto grid grid-cols-3 gap-4 max-sm:grid-cols-2 max-sm:w-full max-sm:gap-2 max-sm:px-2">
-                <h4 className="grid col-span-3 px-2 font-bold text-2xl border-b-2 border-b-black max-sm:col-span-2">Mas noticias</h4>
+                <h4 className="grid col-span-3 px-2 font-bold text-2xl border-b-2 border-b-black max-sm:col-span-2">Mas noticias sobre el tema</h4>
             {/* <section className="flex w-full py-10 border-b-2 border-[#441eae] max-sm:py-4"> */}
                 {
                     lastArticles.map(e => {

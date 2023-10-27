@@ -1,14 +1,14 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { ArticleCompleteType } from "@/types";
 import NotFound from "@/components/NotFound/NotFound";
 import { useState } from "react";
 import { updateArticle } from "../service/admin.service";
 import { useRouter } from "next/navigation";
+import { NewModel } from "@/type";
 
 interface Props {
-    data: ArticleCompleteType
+    data: NewModel
     seccion: string
 }
 
@@ -20,7 +20,7 @@ export default function AdminFullArticle({data, seccion}: Props){
         title: data.title,
         content: data.content,
         img: data.img,
-        summary: data.summary,
+        summary: data.content,
         date: data.date,
         tags: data.tags,
         section: data.section

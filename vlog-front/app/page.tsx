@@ -4,7 +4,7 @@ import { getArticles } from "./service/home.service";
 
 export default async function App() {
   const dataArticles = await getArticles()
-  const mainArticle = dataArticles[0]
+  const mainArticle = dataArticles.slice(0,5)
 
 
   return (

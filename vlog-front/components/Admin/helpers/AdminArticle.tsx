@@ -5,10 +5,10 @@ import NotFound from "@/components/NotFound/NotFound";
 import { useState } from "react";
 import { updateArticle } from "../service/admin.service";
 import { useRouter } from "next/navigation";
-import { NewModel } from "@/type";
+import { ArticleCompleteType } from "@/types";
 
 interface Props {
-    data: NewModel
+    data: ArticleCompleteType
     seccion: string
 }
 

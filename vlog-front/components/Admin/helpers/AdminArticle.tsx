@@ -20,7 +20,7 @@ export default function AdminFullArticle({data, seccion}: Props){
         title: data.title,
         content: data.content,
         img: data.img,
-        summary: data.content,
+        summary: data.summary,
         date: data.date,
         tags: data.tags,
         section: data.section

@@ -21,7 +21,7 @@ export default function Home({mainArticle, dataAerolineas,dataAeropuertos,dataFa
 
     return(
             <>
-                <h4 className="w-3/4 mx-auto px-2 font-bold text-2xl border-b-2 border-b-black max-sm:col-span-2 max-sm:w-full">Noticias mas destacadas</h4>
+                <h4 className="w-3/4 mx-auto font-bold text-3xl border-b-2 border-b-black max-sm:col-span-2 max-sm:w-full pt-6">Noticias mas destacadas</h4>
                 <ArticleMainDos mainArticles={mainArticle}/>
 
                 {/* SECTION PARA AEROPUERTOS */}

@@ -23,7 +23,7 @@ export class ArticleService {
     }
 
     async findArticle(page: string){
-        const limit = 15
+        const limit = 5
         const skip = (parseInt(page) - 1) * limit
 
         const allArticle = await this.articleModel.find().sort({createdAt: -1}).skip(skip).limit(limit).exec()

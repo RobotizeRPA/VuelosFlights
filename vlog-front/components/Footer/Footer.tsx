@@ -14,7 +14,7 @@ export default function Footer(){
             <span>Copyright 2023 | Todos los derechos reservados</span>
             </div>
             <div className="text-center flex justify-center gap-2">
-                <Link href='#' target="_blank"><AiFillLinkedin className='text-2xl'/></Link>
+                <Link href='https://www.linkedin.com/in/agopchorbadjian/' target="_blank"><AiFillLinkedin className='text-2xl'/></Link>
                 <Link href='#' target="_blank"><AiOutlineTwitter className='text-2xl'/></Link>
                 <AiFillMail className='text-2xl'/>
             </div>

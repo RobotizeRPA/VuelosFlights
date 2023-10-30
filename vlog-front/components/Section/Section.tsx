@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Section({section, data}: Props){
-    section = section.charAt(0).toUpperCase() + section.slice(1)
+    const sectioon = section.charAt(0).toUpperCase() + section.slice(1)
 
     // Para agregar mas notas
     const [moreNews, setMoreNews] = useState<ArticlesCardType[]>(data)
@@ -36,12 +36,12 @@ export default function Section({section, data}: Props){
         <main className="w-full mx-auto bg-black max-sm:w-full">
             <div className="text-white  w-3/4 mx-auto h-[25vh] flex flex-col justify-center gap-4">
                 <h2 className="text-3xl font-bold">{section}</h2>
-                <p>Las noticias más recientes de todos lo que acontece con <strong>{section}</strong> a nivel mundial.</p>
+                <p>Las noticias más recientes de todos lo que acontece con <strong>{sectioon}</strong> a nivel mundial.</p>
             </div>
             <section className="bg-white w-full">
                 <article className="w-3/4 mx-auto grid grid-cols-3 gap-10 py-4 max-sm:grid-cols-2 max-sm:w-full max-sm:px-2">
                     {
-                        moreNews.map(e => {
+                        lastArticles.map(e => {
                             return <ArticleCard key={e._id} title={e.title} section={e.section} img={e.img} _id={e._id}/>
                         })
                     }

@@ -1,9 +1,9 @@
 import Providers from '@/components/Provider/Provider'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Catamaran } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Catamaran({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'FlightPosting',

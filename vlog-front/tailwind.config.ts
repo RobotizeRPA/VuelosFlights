@@ -19,7 +19,17 @@ const config: Config = {
       colors: {
         'title': 'rgba(255, 255, 255, 0.750)',
         'secondaryText': '#A8AAB2'
-      }
+      },
+      height: {
+        '30': '30vh',
+        '25': '25vh'
+      },
+      minHeight: {
+        '40': '40px',
+        '50': '50px',
+        '75': '75px',
+        '150': '150px',
+      },
     },
   },
   plugins: [],

@@ -15,7 +15,7 @@ export default function ArticleCard({title,img,section, _id}: Props){
     return(
         <Link href={`/${section}/${_id}`} className="text-center">
             <div className="relative group hover:bg-gray-500">
-                <Image src={img} alt={title} width={200} height={200} className="w-full min-h-[150px] lg:min-h-[150px] hover:z-0"/>
+                <Image src={img} alt={title} width={200} height={200} className="w-full min-h-150 lg:min-h-150 hover:z-0"/>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-sm:hidden">
                     <button className="w-full h-full text-white hover:bg-more">
                     Ver más

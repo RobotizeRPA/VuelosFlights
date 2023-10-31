@@ -1,15 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
-// import RelacionCard from "./RelacionCard/RelacionCard";
-// import Footer from "../Footer/Footer";
-// import Robotize from '../../assets/imagenPerfil.jpg'
 import NotFound from "../NotFound/NotFound";
 import { ArticleCompleteType, ArticlesCardType } from "@/types";
 import TagCard from "./TagCard";
 import Footer from "../Footer/Footer";
 import RelationCard from "./RelationCard";
 // import TagCard from "../NewsCard/TagCard";
-// import { contentCompletee } from "./service/notaCompleta.service";
 
 interface Props {
     data: ArticleCompleteType
@@ -27,7 +22,7 @@ export default function FullArticle({data, seccion, dataSection}: Props){
     const filterNota = dataSection?.filter(e => e.title !== data?.title)
     // Hago un slice porque a veces GPT flashea y le crea 10 tags, entonces me rompe la visual
     // Con este slice solamente agarro los primero dos que llegen en el array (por default vienen 2)
-    const tags = data.tags
+    const tags = data.tags.slice(0,2)
     return(
         <section>
             {
@@ -45,7 +40,7 @@ export default function FullArticle({data, seccion, dataSection}: Props){
                             {/* <Image src={Robotize} alt='Icono' width={50} height={50} className="rounded-[50%]"/> */}
                         <span className="text-secondaryText text-xs">Por <strong className="text-black">Vuelos Gatulin</strong></span>
                         </div>
-                        <Image src={data.img} alt="asd" width={800} height={400} className="w-full max-sm:w-full py-2 mx-auto"/>
+                        <Image src={data.img} alt={data.title} width={800} height={400} className="py-2 mx-auto"/>
                         { contentComplete && <p className="w-full mx-auto text-left" dangerouslySetInnerHTML={{ __html: contentComplete }}></p>}
                         <br /><br />
                         <div className="flex justify-start items-center gap-4">

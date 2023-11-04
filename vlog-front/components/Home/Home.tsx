@@ -31,7 +31,7 @@ export default function Home({mainArticle, dataAerolineas,dataAeropuertos,dataFa
                 <SectionCardHome section='aerolineas' data={dataAerolineas}/>
                 
                 {/* SECTION PARA FABRICANTES */}
-                <SectionCardHome section='fabricantes' data={dataFabricantes}/>
+                <SectionCardHome section='industria' data={dataFabricantes}/>
                 <div className="border-t-2 border-t-black w-full mt-10">
                     <Footer/>    
                 </div>

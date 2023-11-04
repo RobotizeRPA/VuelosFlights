@@ -19,7 +19,7 @@ export default function Navbar(){
                 <div className='flex justify-center items-center gap-4 font-bold max-sm:hidden'>
                     <Link href='/aeropuertos' className={path === 'aeropuertos' ? 'border-b-2 border-b-white' : 'hover:border-b-2 hover:border-b-white'}>Aeropuertos</Link>
                     <Link href='/aerolineas' className={path === 'aerolineas' ? 'border-b-2 border-b-white' : 'hover:border-b-2 hover:border-b-white'}>Aerolineas</Link>
-                    <Link href='/fabricantes' className={path === 'fabricantes' ? 'border-b-2 border-b-white' : 'hover:border-b-2 hover:border-b-white'}>Fabricantes</Link>
+                    <Link href='/industria' className={path === 'industria' ? 'border-b-2 border-b-white' : 'hover:border-b-2 hover:border-b-white'}>Industria</Link>
                 </div>
                 <AiOutlineSearch className='text-lg cursor-pointer max-sm:hidden' onClick={() => router.push('/search')}/>
             </div> 

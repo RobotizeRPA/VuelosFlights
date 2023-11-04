@@ -20,7 +20,7 @@ export default async function App() {
   dataAeropuertos = dataAeropuertos.filter((e:ArticlesCardType) => !titleData.includes(e.title)).splice(0,5)
 
   // Pedido de peticion al back para fabricantes
-  let dataFabricantes = await getArticlesBySection('fabricantes')
+  let dataFabricantes = await getArticlesBySection('industria')
   dataFabricantes = dataFabricantes.filter((e:ArticlesCardType) => !titleData.includes(e.title)).splice(0,5)
 
   return (

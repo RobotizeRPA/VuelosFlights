@@ -31,6 +31,7 @@ export default function Home({mainArticle, dataAerolineas,dataAeropuertos,dataFa
                 
                 {/* SECTION PARA FABRICANTES */}
                 <SectionCardHome section='industria' data={dataFabricantes}/>
+
                 <div className="border-t-2 border-t-primaryColor w-full mt-10 bg-primaryColor text-white">
                     <Footer/>    
                 </div>

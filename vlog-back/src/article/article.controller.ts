@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { CreateNew } from 'src/types';
 
@@ -45,5 +45,16 @@ export class ArticleController {
     updateArticle(@Param('id') id: number, @Body() body){
         return this.articleService.updateArticle(body)
     }
+
+    @Delete('/:id')
+    deleteArticle(@Param('id') id: string){
+        return this.articleService.deleteNews(id);
+    }
+
+    // @Post('update-new-parameter')
+    // async updateNewParameter(): Promise<void> {
+    // const newParameter = true; // Set your desired default value
+    // await this.articleService.updateNewParameterInArticles(newParameter);
+    // }
 
 }

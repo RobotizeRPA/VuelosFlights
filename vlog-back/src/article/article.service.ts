@@ -16,7 +16,8 @@ export class ArticleService {
             img: data.img,
             date: data.date,
             section: data.section,
-            tags: data.tags
+            tags: data.tags,
+            publico: data.publico
         })
 
         return article.save()
@@ -31,9 +32,12 @@ export class ArticleService {
         return allArticle
     }
 
-    async findArticleTitle(title:string){
+    async findArticleTitle(titlee:string){
+        titlee = titlee.replace(/-/g, ' ')
+        titlee = titlee.replace('.html', '')
+
         const article = await this.articleModel.findOne({
-            _id: title
+            title: { $regex: `^${titlee}`, $options: 'i' }
         })
 
         if(article){
@@ -88,11 +92,31 @@ export class ArticleService {
                 img: data.img,
                 date: data.date,
                 section: data.section,
-                tags: data.tags
+                tags: data.tags,
+                publico: data.publico
             }
         })
 
         return 'updated'
 
     }
+
+    async deleteNews(id: string) {
+        try{
+            console.log(id)
+            const article = await this.articleModel.deleteOne({
+                _id: id
+            })
+            console.log(article)
+            return 'Deleted'
+            
+        }
+        catch(e){
+            return 'Error on Delete'
+        }    
+    }
+
+    // async updateNewParameterInArticles(publico: boolean): Promise<void> {
+    //     await this.articleModel.updateMany({}, { $set: { publico } }).exec();
+    // }
 }

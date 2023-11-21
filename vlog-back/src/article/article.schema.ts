@@ -25,6 +25,9 @@ export class Article {
 
     @Prop()
     tags: string[]
+    
+    @Prop()
+    publico: boolean
 
 }
 

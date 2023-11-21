@@ -6,6 +6,7 @@ export interface CreateNew {
     section: string;
     date: string;
     tags: string[]
+    publico: boolean
   }
 
 
@@ -23,4 +24,5 @@ export interface ArticleUpdateModel {
   section: string;
   date: string;
   tags: string[]
+  publico: boolean
 }

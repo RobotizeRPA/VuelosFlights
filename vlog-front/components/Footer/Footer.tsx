@@ -8,9 +8,10 @@ export default function Footer(){
                 <p className="font-semibold"><u>Secciones:</u></p>
                 <Link href='/aeropuertos'>Aeropuertos</Link>
                 <Link href='/aerolineas'>Aerolineas</Link>
+                <Link href='/fabricantes'>Fabricantes</Link>
             </div>
             <div>
-            <h2 className="text-3xl py-2 text-black">FLIGHTPOSTING</h2>
+            <h2 className="text-3xl py-2 text-white">FLIGHTPOSTING</h2>
             <span>Copyright 2023 | Todos los derechos reservados</span>
             </div>
             <div className="text-center flex justify-center gap-2">

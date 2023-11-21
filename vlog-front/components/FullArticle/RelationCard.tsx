@@ -11,8 +11,11 @@ interface Props {
 }
 
 export default function RelationCard({img, section,_id, title}: Props){
+    let titleURL = title.toLowerCase().replaceAll(' ', '-')
+    titleURL = titleURL + '.html'
+
     return(
-        <Link href={`/${section}/${_id}`}>
+        <Link href={`/${section}/${titleURL}`}>
             <Image src={img} alt={title} width={100} height={100} className="w-full py-2"/>
             <CardTitle title={title}/>
         </Link>)

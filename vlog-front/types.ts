@@ -30,3 +30,12 @@ export interface vMoreArticles {
     section: string
     page: string
 }
+
+export interface ArticlesCMSType {
+    _id: string
+    title: string
+    img: string
+    section: string
+    date: string
+    publico: boolean
+}

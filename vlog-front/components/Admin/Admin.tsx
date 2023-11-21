@@ -1,12 +1,12 @@
 'use client'
-import { ArticlesCardType } from "@/types"
-import AdminCard from "./helpers/AdminCard"
-import { useState,useEffect } from "react"
+import { ArticlesCMSType } from "@/types"
+import { useState } from "react"
 import { getMoreArticles } from "../Home/service/home.service"
 import { useRouter } from "next/navigation"
+import AdminCMS from "./helpers/AdminPrueba"
 
 interface Props {
-    data: ArticlesCardType[]
+    data: ArticlesCMSType[]
 }
 
 export default function Admin({data}: Props){
@@ -18,21 +18,21 @@ export default function Admin({data}: Props){
 
    
     // Para agregar mas notas
-    let [moreArticles, setMoreNews] = useState<ArticlesCardType[]>(data)
+    let [moreArticles, setMoreNews] = useState<ArticlesCMSType[]>(data)
     const [limit,setLimit] = useState<boolean>(false)
     const [counter,setCounter] = useState<number>(2)
     
-    moreArticles = moreArticles.filter(e => e.title.toLowerCase().includes(search.toLowerCase()))
+    const dataFilter = moreArticles.filter(e => e.title.toLowerCase().includes(search.toLowerCase()))
     
     // Para traer mas notas 
     const getNews = async () => {
-        const articlesPage: ArticlesCardType[] = await getMoreArticles(counter.toString())
+        const articlesPage: ArticlesCMSType[] = await getMoreArticles(counter.toString())
         console.log(articlesPage[0])
         setCounter(counter + 1)
         if(articlesPage[0]?.title === 'No hay mas data'){
             setLimit(true)
         }else {
-            let arrayNews: ArticlesCardType[] = [...moreArticles,...articlesPage]
+            let arrayNews: ArticlesCMSType[] = [...moreArticles,...articlesPage]
             setMoreNews(arrayNews)
         }
     }
@@ -52,15 +52,17 @@ export default function Admin({data}: Props){
                         <input type="text" value={search} placeholder="Busca el titulo maricon" onChange={handleSearch} className="rounded-lg border-2 border-black px-4"/>
                     </div>
                 </div>
-                <div className="w-3/4 mx-auto grid grid-cols-5 gap-4 max-sm:grid-cols-1 max-sm:w-full">
-                    {/* {
-                        search === '' 
-                        ? moreArticles.map(e => {return <AdminCard key={e._id} _id={e._id} img={e.img} section={e.section} title={e.title}/>})
-                        : moreArticles.map(e => {return <AdminCard key={e._id} _id={e._id} img={e.img} section={e.section} title={e.title}/>})
-                        
-                    } */}
+                <div className="w-3/4 mx-auto flex flex-col justify-center items-center gap-4">
+                    <div className="w-full grid grid-cols-5 text-center py-4 border-b-2 gap-4">
+                        <input type="checkbox" id="scales" name="scales" className="w-[15px]"/>
+                        <p className="font-bold">Estado</p>
+                        <p className="font-bold">Titulo</p>
+                        <p className="font-bold">Seccion</p>
+                        <p className="font-bold">Zonas</p>
+                    </div>
                     {
-                        moreArticles.map(e => {return <AdminCard key={e._id} _id={e._id} img={e.img} section={e.section} title={e.title}/>})
+                        search === '' ? moreArticles.map(e => {return <AdminCMS key={e._id} _id={e._id} section={e.section} title={e.title} date={e.date} publico={e.publico}/>})
+                        : dataFilter.map(e => {return <AdminCMS key={e._id} _id={e._id} section={e.section} title={e.title} date={e.date} publico={e.publico}/>})
                     }
                 </div>
             </section>

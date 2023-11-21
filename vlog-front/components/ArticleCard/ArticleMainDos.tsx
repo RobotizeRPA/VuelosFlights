@@ -10,6 +10,7 @@ interface Props {
 export default function ArticleMainDos({mainArticles}: Props) {
     return(
         <section className="grid grid-cols-4 w-3/4 mx-auto py-4 gap-1 max-sm:grid-cols-2 max-sm:w-full max-sm:p-2">
+            <h4 className="grid col-span-4 font-bold text-3xl border-b-2 border-b-primaryColor max-sm:col-span-2 text-primaryColor">Noticias mas destacadas</h4>
             <div className='h-full bg-no-repeat bg-cover bg-center row-span-2 col-span-2 relative max-sm:hidden' style={{ backgroundImage: `url(${mainArticles[0].img})` }}>
                 <ArticleBig key={mainArticles[0]._id} title={mainArticles[0].title} section={mainArticles[0].section} _id={mainArticles[0]._id} summary={mainArticles[0].summary} date={mainArticles[0].date}/>
             </div>

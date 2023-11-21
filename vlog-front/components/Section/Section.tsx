@@ -33,9 +33,9 @@ export default function Section({section, data}: Props){
     }
 
     return(
-        <main className="w-full mx-auto bg-black max-sm:w-full">
-            <div className="text-white w-3/4 mx-auto h-25 flex flex-col justify-center gap-4">
-                <h2 className="text-3xl font-bold">{section}</h2>
+        <main className="w-full mx-auto bg-primaryColor max-sm:w-full">
+            <div className="text-white w-3/4 mx-auto h-25 flex flex-col justify-center gap-4 bg-">
+                <h2 className="text-3xl font-bold">{sectioon}</h2>
                 <p>Las noticias más recientes de todos lo que acontece con <strong>{sectioon}</strong> a nivel mundial.</p>
             </div>
             <section className="bg-white w-full">

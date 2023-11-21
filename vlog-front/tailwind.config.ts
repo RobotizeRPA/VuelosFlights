@@ -14,11 +14,13 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       backgroundColor: {
-        'more': 'rgba(0, 0, 0, 0.800)'
+        'more': 'rgba(0, 0, 0, 0.800)',
+        'primaryColor': '#00153c'
       },
       colors: {
         'title': 'rgba(255, 255, 255, 0.750)',
-        'secondaryText': '#A8AAB2'
+        'secondaryText': '#A8AAB2',
+        'primaryColor': '#00153c'
       },
       height: {
         '30': '30vh',
@@ -30,6 +32,12 @@ const config: Config = {
         '75': '75px',
         '150': '150px',
       },
+      maxHeight: {
+        '50': '50px'
+      },
+      borderColor: {
+        'primaryColor': '#00153c'
+      }
     },
   },
   plugins: [],

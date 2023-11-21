@@ -13,7 +13,7 @@ export default function Navbar(){
     const [pathName,setPathName] = useState('path')
 
     return(
-        <nav className='border-b-2 border-black w-full sticky top-0 bg-black z-10 text-white'>
+        <nav className='border-b-2 border-primaryColor w-full sticky top-0 bg-primaryColor z-10 text-white'>
             <div className="flex justify-between items-center mx-auto py-4 w-3/4 max-sm:w-full max-sm:justify-around">
                 <h1 className="font-bold text-4xl cursor-pointer max-sm:text-4xl" onClick={() => router.push('/')}>FlightPosting</h1>
                 <div className='flex justify-center items-center gap-4 font-bold max-sm:hidden'>
